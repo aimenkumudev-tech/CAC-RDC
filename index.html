@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CAC-RDC | Sensibilisation & Formation</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- En-tête / Navigation -->
+    <!-- En-tête -->
     <header>
         <div class="logo">CAC-RDC</div>
+
         <nav>
             <a href="#accueil">Accueil</a>
             <a href="#sensibilisation">Sensibilisation</a>
@@ -19,26 +24,88 @@
         </nav>
     </header>
 
-    <!-- Section Principale (Hero) -->
+    <!-- Section principale -->
     <section id="accueil" class="hero">
-        <h1>Site de sensibilisation et formation des jeunes</h1>
-        <p>Ensemble, redynamisons l'avenir de la jeunesse congolaise par l'apprentissage et le partage d'informations indispensables.</p>
-        <a href="#formations" class="btn-main">Découvrir nos formations</a>
+        <h1>Site de Sensibilisation et de Formation des Jeunes</h1>
+
+        <p>
+            Ensemble, redynamisons l'avenir de la jeunesse congolaise
+            grâce à l'apprentissage, au leadership, à l'entrepreneuriat
+            et à la citoyenneté responsable.
+        </p>
+
+        <a href="#formations" class="btn-main">
+            Découvrir nos formations
+        </a>
     </section>
 
-    <!-- Section Présentation / Missions -->
+    <!-- Sensibilisation -->
     <section id="sensibilisation" class="features">
+
         <h2>Nos Piliers</h2>
+
         <div class="grid">
+
             <div class="card">
                 <h3>📢 Sensibilisation</h3>
-                <p>Informer les jeunes sur leurs droits, la citoyenneté, la santé et les enjeux de demain.</p>
+
+                <p>
+                    Informer les jeunes sur leurs droits,
+                    leurs devoirs, la citoyenneté,
+                    la santé et les enjeux du développement.
+                </p>
             </div>
+
             <div class="card">
                 <h3>📚 Formation</h3>
-                <p>Développer des compétences pratiques (numérique, entrepreneuriat, leadership) pour faciliter l'insertion.</p>
+
+                <p>
+                    Développer les compétences pratiques
+                    en informatique, entrepreneuriat,
+                    leadership et innovation.
+                </p>
             </div>
+
         </div>
+
+    </section>
+
+    <!-- Formations -->
+    <section id="formations" class="features">
+
+        <h2>Nos Formations</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>💻 Informatique</h3>
+                <p>Initiation à l'informatique et au numérique.</p>
+            </div>
+
+            <div class="card">
+                <h3>🚀 Entrepreneuriat</h3>
+                <p>Création et gestion de projets innovants.</p>
+            </div>
+
+            <div class="card">
+                <h3>👥 Leadership</h3>
+                <p>Développement des compétences de gestion et d'encadrement.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="features">
+
+        <h2>Contact</h2>
+
+        <p>
+            Pour rejoindre CAC-RDC ou participer à nos activités,
+            contactez-nous.
+        </p>
+
     </section>
 
     <!-- Pied de page -->
@@ -46,6 +113,50 @@
         <p>&copy; 2026 CAC-RDC. Tous droits réservés.</p>
     </footer>
 
+    <!-- Bibliothèque Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Connexion Supabase -->
+    <script>
+
+        const SUPABASE_URL =
+            "https://cctihlkkqwkcnckcsoqx.supabase.co";
+
+        const SUPABASE_KEY =
+            "sb_publishable_jjQPRcnaeAPAfEmQtazQ_Q_oXuGDtDJ";
+
+        const client = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        async function chargerUtilisateurs() {
+
+            const { data, error } = await client
+                .from('utilisateurs')
+                .select('*');
+
+            if (error) {
+
+                console.error(
+                    "Erreur Supabase :",
+                    error.message
+                );
+
+            } else {
+
+                console.log(
+                    "Utilisateurs chargés :",
+                    data
+                );
+
+            }
+        }
+
+        chargerUtilisateurs();
+
+    </script>
+
 </body>
-  </html>
-  
+
+</html>
