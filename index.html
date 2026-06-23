@@ -1,173 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CAC-RDC | Sensibilisation & Formation</title>
-
+    <title>CAC-LINK | Plateforme Souveraine</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- En-tête -->
     <header>
-        <div class="logo">CAC-RDC</div>
-
-        <nav>
-            <a href="#accueil">Accueil</a>
-            <a href="#sensibilisation">Sensibilisation</a>
-            <a href="#formations">Formations</a>
-            <a href="#contact" class="btn-contact">Nous rejoindre</a>
-        </nav>
+        <div class="logo">CAC-LINK</div>
+        <div id="statut-liaison">Connexion sécurisée...</div>
     </header>
 
-    <!-- Section principale -->
-    <section id="accueil" class="hero">
-        <h1>Site de Sensibilisation et de Formation des Jeunes</h1>
+    <main>
+        <section id="section-activation" class="contenant-centre">
+            <button id="btn-benefit-activate" disabled>BENEFIT ACTIVATE</button>
+            <p id="message-alignement">En attente d'alignement géospirituel...</p>
+        </section>
 
-        <p>
-            Ensemble, redynamisons l'avenir de la jeunesse congolaise
-            grâce à l'apprentissage, au leadership, à l'entrepreneuriat
-            et à la citoyenneté responsable.
-        </p>
+        <section id="flux-contenu" class="grille-dynamique">
+            </section>
+    </main>
 
-        <a href="#formations" class="btn-main">
-            Découvrir nos formations
-        </a>
-    </section>
-
-    <!-- Sensibilisation -->
-    <section id="sensibilisation" class="features">
-
-        <h2>Nos Piliers</h2>
-
-        <div class="grid">
-
-            <div class="card">
-                <h3>📢 Sensibilisation</h3>
-
-                <p>
-                    Informer les jeunes sur leurs droits,
-                    leurs devoirs, la citoyenneté,
-                    la santé et les enjeux du développement.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>📚 Formation</h3>
-
-                <p>
-                    Développer les compétences pratiques
-                    en informatique, entrepreneuriat,
-                    leadership et innovation.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Formations -->
-    <section id="formations" class="features">
-
-        <h2>Nos Formations</h2>
-
-        <div class="grid">
-
-            <div class="card">
-                <h3>💻 Informatique</h3>
-                <p>Initiation à l'informatique et au numérique.</p>
-            </div>
-
-            <div class="card">
-                <h3>🚀 Entrepreneuriat</h3>
-                <p>Création et gestion de projets innovants.</p>
-            </div>
-
-            <div class="card">
-                <h3>👥 Leadership</h3>
-                <p>Développement des compétences de gestion et d'encadrement.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="features">
-
-        <h2>Contact</h2>
-
-        <p>
-            Pour rejoindre CAC-RDC ou participer à nos activités,
-            contactez-nous.
-        </p>
-
-    </section>
-
-    <section>
-        <h2>Utilisateurs enregistrés</h2>
-
-        <div id="liste-utilisateurs"></div>
-
-    </section>
-
-    <!-- Pied de page -->
     <footer>
-        <p>&copy; 2026 CAC-RDC. Tous droits réservés.</p>
+        <p>&copy; 2026 CAC-LINK. Propriété Exclusive de l'Autorité Unique.</p>
     </footer>
 
-    <!-- Bibliothèque Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <!-- Connexion Supabase -->
-    <script>
-
-        const SUPABASE_URL =
-            "https://cctihlkkqwkcnckcsoqx.supabase.co";
-
-        const SUPABASE_KEY =
-            "sb_publishable_jjQPRcnaeAPAfEmQtazQ_Q_oXuGDtDJ";
-
-        const client = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        );
-
-        async function chargerUtilisateurs() {
-            const { data, error } = await client
-                .from('utilisateurs')
-                .select('*');
-
-            const liste = document.getElementById("liste-utilisateurs");
-
-            if (error) {
-                liste.innerHTML = "<p>Erreur : " + error.message + "</p>";
-            } else {
-                let html = "";
-
-                data.forEach(user => {
-                    html += `
-                        <div class="card">
-                            <h3>${user["Nom complet"]}</h3>
-                            <p>Province : ${user["Province"]}</p>
-                            <p>Téléphone : ${user["Numéro de téléphone"]}</p>
-                            <p>Métier : ${user["Métier"]}</p>
-                        </div>
-                    `;
-                });
-
-                liste.innerHTML = html;
-            }
-        }
-
-        chargerUtilisateurs();
-
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="app.js"></script>
 </body>
-
 </html>
+
