@@ -106,6 +106,12 @@
             contactez-nous.
         </p>
 
+    </section><section>
+
+    <h2>Utilisateurs enregistrés</h2>
+
+    <div id="liste-utilisateurs"></div>
+
     </section>
 
     <!-- Pied de page -->
@@ -136,23 +142,32 @@
                 .from('utilisateurs')
                 .select('*');
 
-            if (error) {
+            const liste =
+    document.getElementById("liste-utilisateurs");
 
-                console.error(
-                    "Erreur Supabase :",
-                    error.message
-                );
+if (error) {
 
-            } else {
+    liste.innerHTML =
+        "<p>Erreur : " + error.message + "</p>";
 
-                console.log(
-                    "Utilisateurs chargés :",
-                    data
-                );
+} else {
 
-            }
-        }
+    let html = "";
 
+    data.forEach(user => {
+
+        html += `
+            <div class="card">
+                <h3>${user["Nom complet"]}</h3>
+                <p>Province : ${user["Province"]}</p>
+                <p>Téléphone : ${user["Numéro de téléphone"]}</p>
+                <p>Métier : ${user["Métier"]}</p>
+            </div>
+        `;
+    });
+
+    liste.innerHTML = html;
+}
         chargerUtilisateurs();
 
     </script>
