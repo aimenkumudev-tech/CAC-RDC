@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0f172a; /* Fond sombre de sécurité */
+    background-color: #0f172a;
     color: #f8fafc;
     line-height: 1.6;
     display: flex;
@@ -10,21 +10,27 @@ body {
     min-height: 100vh;
 }
 
-/* En-tête de contrôle */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
     background-color: #1e293b;
-    border-bottom: 2px solid #3b82f6; /* Ligne de signal bleue */
+    border-bottom: 2px solid #D4AF37; /* OR CAC-RDC */
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #3b82f6;
+    color: #D4AF37; /* OR au lieu de bleu */
     letter-spacing: 1px;
+}
+
+.logo::after {
+    content: " - Aime Nkumu";
+    font-size: 12px;
+    color: #64748b;
+    font-weight: normal;
 }
 
 #statut-liaison {
@@ -34,10 +40,8 @@ header {
     padding: 6px 12px;
     border-radius: 20px;
     border: 1px solid #334155;
-    transition: all 0.5s ease;
 }
 
-/* Zone centrale d'activation */
 main {
     flex: 1;
     padding: 40px 5%;
@@ -54,11 +58,16 @@ main {
     background: #1e293b;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid #D4AF37;
 }
 
-/* Bouton Souverain BENEFIT ACTIVATE */
+.contenant-centre h1 {
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
 #btn-benefit-activate {
-    background-color: #10b981; /* Vert d'activation */
+    background-color: #10b981;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -71,7 +80,6 @@ main {
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
 
-/* État verrouillé (Article 8 de la charte) */
 #btn-benefit-activate:disabled {
     background-color: #475569;
     color: #94a3b8;
@@ -87,7 +95,6 @@ main {
     font-style: italic;
 }
 
-/* Grille pour l'injection dynamique du contenu */
 .grille-dynamique {
     display: flex;
     gap: 20px;
@@ -96,7 +103,6 @@ main {
     margin-top: 20px;
 }
 
-/* Style des cartes de formation (Structure Universelle) */
 .carte {
     background: #1e293b;
     padding: 25px;
@@ -104,11 +110,17 @@ main {
     border: 1px solid #334155;
     width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.carte:hover {
+    transform: translateY(-5px);
+    border-color: #D4AF37;
 }
 
 .carte h3 {
     margin-top: 0;
-    color: #3b82f6;
+    color: #D4AF37;
     border-bottom: 1px solid #334155;
     padding-bottom: 10px;
 }
@@ -118,7 +130,6 @@ main {
     color: #cbd5e1;
 }
 
-/* Pied de page */
 footer {
     text-align: center;
     padding: 20px;
@@ -126,4 +137,9 @@ footer {
     color: #64748b;
     font-size: 14px;
     border-top: 1px solid #334155;
+}
+
+footer::after {
+    content: " | Propriétaire: Aime Nkumu | CAC-RDC © 2026";
+    color: #D4AF37;
 }
